@@ -2,11 +2,11 @@
 //! 
 //!    - [x] 1.1 运算符
 //!    - [x] 1.2 广播机制
-//!    - [ ] 1.3 数据的读取
-//!    - [ ] 1.4 数据的预处理
+//!    - [x] 1.3 索引和切片
 //! 
 //! 
-use candle_core::{Device, Result, Tensor};
+//! 
+use candle_core::{ Result, Tensor};
 
 /// # 数据操作
 pub struct DataOp;
@@ -25,7 +25,7 @@ impl DataOp {
 
 #[cfg(test)]
 mod tests {
-    // use candle_core::D;
+    use candle_core::{Device, IndexOp};
 
     use super::*;
 
@@ -89,6 +89,25 @@ mod tests {
             result.to_vec2::<f32>()?,
             vec![vec![2f32, 4f32], vec![4f32, 6f32]]
         );
+
+        Ok(())
+    }
+
+    #[test]
+    fn index_slice_works() -> Result<()> {
+        let d = Device::Cpu;
+
+        // 索引
+        let x = Tensor::new(vec![1f32, 2f32, 3f32, 4f32], &d)?.reshape(&[2, 2])?;
+        let result = x.i(1)?;
+
+        assert_eq!(result.to_vec1::<f32>()?, vec![3f32, 4f32]);
+
+        // 切片
+        let x = Tensor::new(vec![1f32, 2f32, 3f32, 4f32], &d)?.reshape(&[2, 2])?;
+        let result = x.i(0..1)?;
+
+        assert_eq!(result.to_vec2::<f32>()?, vec![vec![1f32, 2f32]]);
 
         Ok(())
     }

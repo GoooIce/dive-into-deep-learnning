@@ -6,7 +6,7 @@
 //! 
 //! 3. 微积分：[calculus]
 //!
-
+extern crate candle_core;
 use candle_core::{Device, Result, Tensor};
 
 pub mod data_op;

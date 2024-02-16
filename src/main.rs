@@ -6,6 +6,7 @@
 //! 
 //! [第一章：Candle](../chapter_1_candle/index.html)
 //! 
+//! [第二章：hf-hub](../chapter_2_hub/index.html)
 //! 
 //! 
 
