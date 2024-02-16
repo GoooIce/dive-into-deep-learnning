@@ -21,6 +21,11 @@ impl DataOp {
     pub fn broadcast_add(left: Tensor, right: Tensor) -> Result<Tensor> {
         left.broadcast_add(&right)
     }
+
+    /// # 索引和切片
+    pub fn index_slice() -> Result<()> {
+        Ok(())
+    }
 }
 
 #[cfg(test)]
