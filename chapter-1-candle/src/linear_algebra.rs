@@ -23,3 +23,22 @@
 //! 
 //! 
 use candle_core::{Device, Result, Tensor};
+/// # 线性代数
+pub struct LinearAlgebra;
+
+impl LinearAlgebra {
+}
+
+#[cfg(test)]
+mod tests {
+    // use candle_core::D;
+
+    use super::*;
+
+    #[test]
+    fn add_works() -> Result<()> {
+
+        Ok(())
+    }
+
+}

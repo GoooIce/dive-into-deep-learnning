@@ -3,7 +3,7 @@
 //! 
 //! 
 use candle_core::{Device, Result, Tensor};
-/// # 数据操作
+/// # 微积分
 pub struct Calculus;
 
 impl Calculus {
