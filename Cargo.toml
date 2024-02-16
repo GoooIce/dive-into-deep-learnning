@@ -1,0 +1,9 @@
+[package]
+name = "about_dive_into_deep_learning"
+version = "0.1.0"
+edition = "2021"
+
+
+
+[workspace]
+members = ["chapter-1-candle"]
