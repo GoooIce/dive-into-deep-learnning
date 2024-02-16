@@ -4,5 +4,13 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-candle-core = { git = "https://github.com/huggingface/candle.git", version = "0.4.0" }
 hf-hub = "0.3.2"
+
+[target.'cfg(windows)'.dependencies]
+candle-core = { git = "https://github.com/huggingface/candle.git", version = "0.4.0", features = ["cuda"]}
+
+[target.'cfg(linux)'.dependencies]
+candle-core = { git = "https://github.com/huggingface/candle.git", version = "0.4.0", features = ["cuda"]}
+
+[target.'cfg(unix)'.dependencies]
+candle-core = { git = "https://github.com/huggingface/candle.git", version = "0.4.0"}
