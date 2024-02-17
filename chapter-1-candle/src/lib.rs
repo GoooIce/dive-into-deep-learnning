@@ -1,4 +1,13 @@
 //! # 第一章：Candle
+//! 
+//! ## 安装
+//! 
+//! ```bash
+//! cargo new myapp
+//! cd myapp
+//! cargo add --git https://github.com/huggingface/candle.git candle-core
+//! ```
+//! [更详细的安装文档](https://huggingface.github.io/candle/guide/installation.html)
 //!
 //! 1. 数据操作：[data_op]
 //! 
