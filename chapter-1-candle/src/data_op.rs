@@ -81,7 +81,56 @@ impl DataOp {
     /// # Ok(())
     /// # }
     /// ```
+    /// or
+    /// 
+    /// ```
+    /// # use candle_core::{Device, Result, Tensor};
+    /// use candle_core::IndexOp; // 导入索引操作
+    /// # fn main() -> Result<()> {
+    /// let x = Tensor::arange(0f32, 16f32, &Device::Cpu)?.reshape(&[4, 4, 1])?; // [[[0], [1], [2], [3]], [[4], [5], [6], [7]], [[8], [9], [10], [11]], [[12], [13], [14], [15]]]
+    /// 
+    /// let x_1_result = x.i(1)?; // [[4], [5], [6], [7]]
+    /// # assert_eq!(x_1_result.to_vec2::<f32>()?, vec![vec![4f32], vec![5f32], vec![6f32], vec![7f32]]);
+    /// 
+    /// let x_1_2_result = x.i((1, 2))?; // [6]
+    /// # assert_eq!(x_1_2_result.to_vec1::<f32>()?, vec![6f32]);
+    /// 
+    /// let x_1_2_0_result = x.i((1, 2, 0))?; // 6
+    /// # assert_eq!(x_1_2_0_result.to_scalar::<f32>()?, 6f32);
+    /// 
+    /// let x_1_y_all_result = x.i((0..4, ..1, 0))?; // [[0], [4], [8], [12]]
+    /// # assert_eq!(x_1_y_all_result.to_vec2::<f32>()?, vec![vec![0f32], vec![4f32], vec![8f32], vec![12f32]]);
+    /// # Ok(())
+    /// # }
+    /// ```
+    /// 
     pub fn index_slice() {
         unimplemented!()
     }
+}
+
+
+#[cfg(test)]
+mod tests {
+    // use candle_core::D;
+
+    use candle_core::{Device, Tensor, Result, IndexOp};
+
+    // use super::*;
+
+    #[test]
+    fn add_works() -> Result<()> {
+        // let a = Tensor::arange(0f32, 16f32, &Device::Cpu)?;
+        // println!("a: {:?}", a.to_vec0::<f32>()?);
+
+        let x = Tensor::arange(0f32, 16f32, &Device::Cpu)?.reshape(&[4, 4, 1])?;
+        println!("x: {:?}", &x.to_vec3::<f32>()?);
+
+        // 获取一列
+        let result = x.i((0..4, ..2, 0))?;
+        println!("result: {:?}", &result.to_vec2::<f32>()?);
+
+        Ok(())
+    }
+
 }
