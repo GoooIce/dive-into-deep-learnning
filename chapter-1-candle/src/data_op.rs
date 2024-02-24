@@ -127,7 +127,7 @@ mod tests {
         println!("x: {:?}", &x.to_vec3::<f32>()?);
 
         // 获取一列
-        let result = x.i((0..4, ..2, 0))?;
+        let result = x.i((1..4, 1.., 0))?;
         println!("result: {:?}", &result.to_vec2::<f32>()?);
 
         Ok(())
