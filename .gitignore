@@ -1,3 +1,5 @@
 target
 Cargo.lock
 .vscode
+.venv
+__pycache__
