@@ -3,3 +3,4 @@ Cargo.lock
 .vscode
 .venv
 __pycache__
+test_*
