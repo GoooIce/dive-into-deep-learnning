@@ -1,0 +1,6 @@
+[package]
+name = "chapter-3-linear-regression"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

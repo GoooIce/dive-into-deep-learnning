@@ -6,4 +6,4 @@ edition = "2021"
 
 
 [workspace]
-members = ["chapter-1-candle", "chapter-2-hub"]
+members = ["chapter-1-candle", "chapter-2-hub", "chapter-3-linear-regression"]
